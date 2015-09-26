@@ -16,7 +16,7 @@
 		<hr>
 		<form action="adicionaContato" method="post">
 			Nome: <input type="text" name="nome" /><br />
-			E-mail: <input type="text" name="email" /><br />
+			E-mail: <input type="email" name="email" /><br />
 			Endereço: <input type="text" name="endereco" /><br />
 			Data de Nascimento: <dt:campoData id="dataNascimento" /><br />
 			
