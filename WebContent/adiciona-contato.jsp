@@ -8,9 +8,10 @@
 		<link rel="stylesheet" href="css/jquery-ui.css" />
 		<script src="js/jquery.js" ></script>
 		<script src="js/jquery-ui.js" ></script>
+		<script src="js/main.js" ></script>
 	</head>
 	<body>
-		<c:import url="cabecalho.jsp"/>
+		<c:import url="/WEB-INF/jsp/cabecalho.jsp"/>
 	
 		<h1>Adiciona Contatos</h1>
 		<hr>
@@ -23,6 +24,6 @@
 			<input type="submit" value="Gravar"/>
 		</form>
 		
-		<c:import url="rodape.jsp"/>
+		<c:import url="/WEB-INF/jsp/rodape.jsp"/>
 	</body>
 </html>

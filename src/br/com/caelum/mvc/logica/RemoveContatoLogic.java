@@ -7,6 +7,8 @@ import br.com.caelum.jdbc.dao.ContatoDao;
 
 public class RemoveContatoLogic implements Logica {	
 	
+	private static final String JSP_PATH = "mvc?logica=ListaContatosLogic";
+	
 	@Override
 	public String executa(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
@@ -22,8 +24,8 @@ public class RemoveContatoLogic implements Logica {
 				
 		System.out.println("Contato " + id + " removido!");
 		
-		//Retorna o nome da página do JSP para o ControllerServlet.
-		return "mvc?logica=ListaContatosLogic";
+		//Retorna, para o ControllerServlet, a String com o caminho para a página do JSP.
+		return JSP_PATH;
 	}
 
 }

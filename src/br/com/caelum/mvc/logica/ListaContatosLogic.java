@@ -10,6 +10,8 @@ import br.com.caelum.jdbc.modelo.Contato;
 
 public class ListaContatosLogic implements Logica {
 
+	private static final String JSP_PATH = "/WEB-INF/jsp/lista-contatos.jsp";
+	
 	@Override
 	public String executa(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
@@ -18,7 +20,7 @@ public class ListaContatosLogic implements Logica {
 		
 		request.setAttribute("contatos", contatos);
 		
-		return "/WEB-INF/jsp/lista-contatos.jsp";
+		return JSP_PATH;
 	}
 
 }
