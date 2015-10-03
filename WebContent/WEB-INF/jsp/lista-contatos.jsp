@@ -52,6 +52,8 @@
 			</tbody>
 		</table>
 		
+		<a href="adiciona-contato.jsp">+Novo Contato</a>
+		
 		<c:import url="rodape.jsp"/>
 	</body>
 </html>

@@ -1,9 +1,9 @@
 package br.com.caelum.mvc.logica;
 
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,16 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.caelum.jdbc.dao.ContatoDao;
 import br.com.caelum.jdbc.modelo.Contato;
 
-public class AlteraContatoLogic implements Logica {
+public class AdicionaContatoLogic implements Logica {
 
 	private static final String JSP_PATH = "mvc?logica=ListaContatosLogic";
 	
 	@Override
 	public String executa(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
-
+		
 		Contato contato = new Contato();
-		contato.setId(Long.parseLong(request.getParameter("id")));
 		contato.setNome(request.getParameter("nome"));
 		contato.setEmail(request.getParameter("email"));
 		contato.setEndereco(request.getParameter("endereco"));
@@ -35,14 +34,14 @@ public class AlteraContatoLogic implements Logica {
 			e.printStackTrace();
 		}
 		contato.setDataNascimento(dataNascimento);
-		
+
 		System.out.println(contato);
-		System.out.println("Alterando contato...");
+		System.out.println("Adicionando contato...");
 		
 		ContatoDao dao = new ContatoDao();
-		dao.altera(contato);
-		
-		System.out.println("Contato "+contato.getNome()+" alterado!");
+		dao.adiciona(contato);
+
+		System.out.println("Contato "+contato.getNome()+" adicionado!");
 		
 		return JSP_PATH;
 	}
