@@ -3,7 +3,7 @@
 
 <%@ attribute name="id" required="true" %>
 <%@ attribute name="value" required="false" %>
-<%@ attribute name="disabled" required="false" %>
+<%@ attribute name="readonly" required="false" %>
 
 <c:set var="fieldValue">
 	<c:choose>
@@ -17,8 +17,8 @@
 </c:set>
 
 <c:choose>
-	<c:when test="${not empty disabled and disabled == 'true'}">
-		<input id="${id}" name="${id}" value="${fieldValue}" disabled />
+	<c:when test="${not empty readonly and readonly == 'true'}">
+		<input id="${id}" name="${id}" value="${fieldValue}" readonly />
 	</c:when>
 	<c:otherwise>
 		<input id="${id}" name="${id}" value="${fieldValue}" />

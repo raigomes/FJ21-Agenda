@@ -1,5 +1,6 @@
 function habilitaCampo(id) {
-	$("#"+id).prop("disabled", false);	
+	$("#"+id).prop("readonly", false);
+	$("#lbl_"+id).remove();
 };
 
 function habilitaCampoData(id) {	

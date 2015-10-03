@@ -12,25 +12,27 @@
 	<body>
 		<c:import url="cabecalho.jsp"/>
 		
-		<form action="">
+		<form action="mvc?logica=AlteraContatoLogic" method="post">
+			<input id="id" name="id" type="hidden" value="${contato.id}" readonly />
+		
 			<strong>Nome: </strong>
-			<input id="name" type="text" value="${contato.nome}" disabled />
-			<a href="javascript:void(0)" onclick="javascript:habilitaCampo('name')">Editar</a><br/>
+			<input id="nome" name="nome" type="text" value="${contato.nome}" readonly />
+			<a id="lbl_nome" href="javascript:void(0)" onclick="javascript:habilitaCampo('nome')">Editar</a><br/>
 			
 			<strong>Email: </strong>
-			<input id="email" type="text" value="${contato.email}" disabled />
-			<a href="javascript:void(0)" onclick="javascript:habilitaCampo('email')">Editar</a><br/>
+			<input id="email" name="email" type="text" value="${contato.email}" readonly />
+			<a id="lbl_email" href="javascript:void(0)" onclick="javascript:habilitaCampo('email')">Editar</a><br/>
 			
 			<strong>Endereço: </strong>
-			<input id="address" type="text" value="${contato.endereco}" disabled />
-			<a href="javascript:void(0)" onclick="javascript:habilitaCampo('address')">Editar</a><br/>
+			<input id="endereco" name="endereco" type="text" value="${contato.endereco}" readonly />
+			<a id="lbl_endereco" href="javascript:void(0)" onclick="javascript:habilitaCampo('endereco')">Editar</a><br/>
 			
 			<c:set var="dataNascimento">
 				<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
 			</c:set>
 			<strong>Data de Nascimento: </strong>			
-			<dt:campoData id="birthday" value="${dataNascimento}" disabled="true" />
-			<a href="javascript:void(0)" onclick="javascript:habilitaCampoData('birthday')">Editar</a><br/>			
+			<dt:campoData id="dataNascimento" value="${dataNascimento}" readonly="true" />
+			<a id="lbl_dataNascimento" href="javascript:void(0)" onclick="javascript:habilitaCampoData('dataNascimento')">Editar</a><br/>			
 			
 			<input type="submit" value="Altera Contato" />
 		</form>
