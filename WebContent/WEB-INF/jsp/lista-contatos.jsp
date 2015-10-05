@@ -52,7 +52,7 @@
 			</tbody>
 		</table>
 		
-		<a href="adiciona-contato.jsp">+Novo Contato</a>
+		<a href="mvc?logica=AdicionaContatoLogic">+Novo Contato</a>
 		
 		<c:import url="rodape.jsp"/>
 	</body>

@@ -8,6 +8,6 @@
 	</head>
 	<body>
 		<p>Contato ${param.nome} adicionado com sucesso</p><br/>
-		<a href="adiciona-contato.jsp">Voltar</a>
+		<a href="mvc?logica=ListaContatosLogic">Voltar</a>
 	</body>
 </html>
