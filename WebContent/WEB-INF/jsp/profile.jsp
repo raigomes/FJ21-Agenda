@@ -12,7 +12,7 @@
 	<body>
 		<c:import url="cabecalho.jsp"/>
 		
-		<form action="mvc?logica=AlteraContatoLogic" method="post">
+		<form action="mvc?logica=AddUpdateContatoLogic" method="post">
 			<input id="id" name="id" type="hidden" value="${contato.id}" readonly />
 		
 			<strong>Nome: </strong>
