@@ -16,6 +16,8 @@ import br.com.caelum.mvc.logica.Logica;
  * - Essa classe implementa a interface Logica e é instanciada através do tipo Class;
  * - O método executa retorna o nome do JSP que vai exibir a resposta ao usuário;
  * - O RequestDispatcher encaminha a resposta ao JSP correspondente;
+ * 
+ * => ControllerServlet e Logica são um exemplo de implementação do pattern Front Controller. 
  */
 
 @WebServlet("/mvc")

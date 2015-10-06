@@ -24,11 +24,11 @@ public class AddUpdateContatoLogic implements Logica {
 		String contato_Endereco = request.getParameter("endereco");
 		String contato_DataNascimento = request.getParameter("dataNascimento");
 		
-		Calendar dataNascimento = null;				
+		Calendar dataNascimento = null;
 		try {
 			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(contato_DataNascimento);
 			dataNascimento = Calendar.getInstance();
-			dataNascimento.setTime(date);			
+			dataNascimento.setTime(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

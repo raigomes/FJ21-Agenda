@@ -35,7 +35,11 @@ public class ContatoDao {
 			stmt.setString(1, contato.getNome());
 			stmt.setString(2, contato.getEmail());
 			stmt.setString(3, contato.getEndereco());
-			stmt.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis()));
+			
+			if(contato.getDataNascimento() != null) 
+				stmt.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis()));
+			else
+				stmt.setDate(4, null);
 			
 			//Executa e fecha statement
 			stmt.execute();
@@ -65,11 +69,15 @@ public class ContatoDao {
 				con.setEndereco(rs.getString("endereco"));
 				
 				//Insere dataNascimento no objeto
-				Calendar data = Calendar.getInstance();
-				SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss");
-				java.util.Date dataNascimento = sf.parse(sf.format(rs.getDate("dataNascimento")));
-				data.setTime(dataNascimento);
-				con.setDataNascimento(data);
+				Date date = rs.getDate("dataNascimento");
+				
+				if (date != null) {
+					Calendar dataNascimento = Calendar.getInstance();
+					SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss");
+					java.util.Date dataFormatada = sf.parse(sf.format(date));
+					dataNascimento.setTime(dataFormatada);
+					con.setDataNascimento(dataNascimento);
+				}
 				
 				//Add objeto na lista
 				contatos.add(con);
@@ -104,9 +112,13 @@ public class ContatoDao {
 				con.setEmail(rs.getString("email"));
 				con.setEndereco(rs.getString("endereco"));
 				
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataNascimento"));
-				con.setDataNascimento(data);
+				Date date = rs.getDate("dataNascimento");
+				
+				if(date != null) {
+					Calendar dataNascimento = Calendar.getInstance();
+					dataNascimento.setTime(date);
+					con.setDataNascimento(dataNascimento);
+				}
 				
 				return con;
 			}
@@ -129,7 +141,12 @@ public class ContatoDao {
 			stmt.setString(1, contato.getNome());
 			stmt.setString(2, contato.getEmail());
 			stmt.setString(3, contato.getEndereco());
-			stmt.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis()));
+			
+			if(contato.getDataNascimento() != null) 
+				stmt.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis()));
+			else
+				stmt.setDate(4, null);
+			
 			stmt.setLong(5, contato.getId());
 			
 			stmt.execute();

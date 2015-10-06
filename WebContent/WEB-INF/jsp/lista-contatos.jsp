@@ -33,15 +33,29 @@
 									<a href="mailto:${contato.email}">${contato.email}</a>
 								</c:when>
 								<c:otherwise>
-									Email não informado
+									<i>Email não informado</i>
 								</c:otherwise>
 							</c:choose>							
 						</td>
 						<td>
-							${contato.endereco}
+							<c:choose>
+								<c:when test="${not empty contato.endereco}">
+									${contato.endereco}
+								</c:when>
+								<c:otherwise>
+									<i>Endereço não informado</i>
+								</c:otherwise>
+							</c:choose>
 						</td>
 						<td>
-							<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>							
+							<c:choose>
+								<c:when test="${not empty contato.dataNascimento}">
+									<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
+								</c:when>
+								<c:otherwise>
+									<i>Sem data</i>
+								</c:otherwise>
+							</c:choose>
 						</td>
 						<td>
 							<a href="mvc?logica=MostraContatoLogic&id=${contato.id}">Alterar</a>
