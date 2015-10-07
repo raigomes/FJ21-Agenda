@@ -1,10 +1,7 @@
 package br.com.caelum.servlet;
 
-import br.com.caelum.jdbc.dao.ContatoDao;
-import br.com.caelum.jdbc.modelo.Contato;
-
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,6 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.caelum.jdbc.dao.ContatoDao;
+import br.com.caelum.jdbc.modelo.Contato;
 
 @WebServlet("/adicionaContato")
 public class AdicionaContatoServlet extends HttpServlet {
@@ -51,7 +51,8 @@ public class AdicionaContatoServlet extends HttpServlet {
 		contato.setDataNascimento(dataNascimento);
 		
 		//Insere Contato no Banco de Dados
-		ContatoDao dao = new ContatoDao();
+		Connection connection = (Connection) request.getAttribute("conexao"); 
+		ContatoDao dao = new ContatoDao(connection);
 		dao.adiciona(contato);
 		
 		//Imprime resposta no JSP

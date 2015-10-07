@@ -1,9 +1,10 @@
 package br.com.caelum.mvc.logica;
 
-import java.util.Date;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,7 +40,8 @@ public class AlteraContatoLogic implements Logica {
 		System.out.println(contato);
 		System.out.println("Alterando contato...");
 		
-		ContatoDao dao = new ContatoDao();
+		Connection connection = (Connection) request.getAttribute("conexao"); 
+		ContatoDao dao = new ContatoDao(connection);
 		dao.altera(contato);
 		
 		System.out.println("Contato "+contato.getNome()+" alterado!");
